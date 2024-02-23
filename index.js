@@ -5,7 +5,7 @@ const handlerStudentsInfo = require("./handlers/handlerStudentsInfo");
 //const axios = require("axios");
 const app = express();
 const port = 1000;
-const whitelist = ["http://localhost:2000"];
+const whitelist = ["http://localhost:2000","http://127.0.0.1:8000"];
 const corsOptions = {
   origin: originFunction,
 };
@@ -19,9 +19,6 @@ function originFunction(origin, callback) {
 }
 app.use(cors(corsOptions));
 app.get("/allStudentsInfo", redirectReqToDjango);
-app.get("/hello", (req, res) => {
-  res.json({ message: "Hello, World" });
-});
 app.listen(port, () => {
   console.log("listens");
 });
